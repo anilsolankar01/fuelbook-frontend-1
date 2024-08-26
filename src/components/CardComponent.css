@@ -1,0 +1,44 @@
+.card-custom {
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.icon-text-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-top: -80px;
+}
+
+.icon-box i {
+    color: #fff;
+    font-size: 24px;
+}
+
+.text-box {
+    flex: 1;
+    text-align: right;
+}
+
+.text-box h5,
+.text-box h2 {
+    margin: 0;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #5f1414; /* or any color that contrasts with the background */
+    margin: 10px 0; /* Add margin for spacing */
+}

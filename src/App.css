@@ -1,0 +1,26 @@
+.App {
+    display: flex;
+    background-color: rgb(255, 251, 251);
+}
+
+.main-content {
+    
+    margin-left: 29vh;
+    margin-top: 9vh;
+    margin-right: 1.5vh;
+    margin-bottom: 8vh;
+    padding: 3vh;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(243, 242, 242);
+}
+
+@media (max-width: 768px) {
+    .main-content {
+    
+        margin-left: 0vh;
+        padding: 5vh;
+        width: 100%;
+        
+    }
+}

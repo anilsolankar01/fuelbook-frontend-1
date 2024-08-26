@@ -1,0 +1,108 @@
+/* General Sidebar Styles */
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    padding-top: 100px;
+    padding-left: 15px;
+    padding-right: 5px;
+    padding-bottom: 1%;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0); /* Sidebar visible by default on desktop */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Sidebar when open on mobile */
+.sidebar.open {
+    transform: translateX(0); /* Ensure sidebar slides in when toggled on mobile */
+}
+
+/* Sidebar Links */
+.sidebar a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.sidebar a i {
+    margin-right: 15px;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+/* Sidebar Content and Footer */
+.sidebar .helpline {
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.sidebar .content {
+    flex-grow: 1;
+    margin: 1%;
+}
+
+.sidebar .footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+}
+
+/* Toggle Button */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1100;
+}
+
+/* Overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default on mobile */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Show sidebar when toggled on mobile */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    .sidebar-overlay {
+        display: block; /* Show overlay on mobile */
+    }
+}

@@ -1,0 +1,95 @@
+
+.count-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    width: 150px;
+}
+.count-card .count {
+    font-size: 24px;
+    font-weight: bold;
+}
+.count-card .label {
+    font-size: 14px;
+    color: #888;
+}
+.count-card.market .count {
+    color: rgb(235, 160, 22);
+}
+
+.anil{
+    width: 100%;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    display: inline-block;
+    width: 80px; /* Make sure the width matches the one in Trucks.css */
+    text-align: center;
+}
+
+.status-badge.active {
+    background-color: #28a745; /* Green for active */
+}
+
+.status-badge.disactive {
+    background-color: #dc3545; /* Red for disactive */
+}
+
+.drivers-table-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-title {
+    margin: -50px 20px 20px 20px;
+    padding: 15px;
+    background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
+    color: white;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .table th {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    border-bottom: none;
+  }
+  
+  .table td {
+    vertical-align: middle;
+    border-bottom: none;
+  }
+  
+  .table thead {
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .table tbody tr {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .table td:last-child {
+    text-align: center;
+  }
+  
+  .table .btn-link {
+    color: #ff2d55;
+    
+  }
+  

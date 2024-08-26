@@ -1,0 +1,126 @@
+.fuel-invoice {
+  width: 100%;
+  
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.invoice-table-title{
+  margin: -50px 20px 20px 20px;
+  padding: 15px;
+  background: linear-gradient(195deg, rgb(219, 101, 243), rgb(83, 13, 97));
+  color: white;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+
+.search-input {
+  width: 250px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin-right: 10px;
+}
+
+.pagination span {
+  margin-right: 10px;
+}
+
+
+.status-badge {
+  display: block;
+  padding: 5px 5px;
+  color: white;
+  border-radius: 10px;
+  font-size: 0.9em;
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+
+.status-badge.redeem {
+  background-color: #28a745; /* Or any color you prefer */
+}
+
+.status-badge.not-redeem {
+  background-color: #f3db54; /* Red color for not redeemed */
+}
+
+
+
+.status-badge.verified {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-badge.not-verified {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.table-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  max-width: 300px;
+}
+
+.invoices-table-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.me-2{
+  margin-right: 3vh;
+}
+
+.button-verify {
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 8px 16px; /* Adjust padding as needed */
+  font-weight: bold; /* Bold text */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.button-verify:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.button-unverify {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 8px 16px; /* Adjust padding as needed */
+  font-weight: bold; /* Bold text */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.button-unverify:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+

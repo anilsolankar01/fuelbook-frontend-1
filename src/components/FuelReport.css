@@ -1,0 +1,35 @@
+.fuel-report-container {
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.pump-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pump-link:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
