@@ -71,7 +71,9 @@ const Drivers = () => {
             }
         } else {
             try {
+                console.log("data send from form "+ newDriver)
                 const response = await axios.post('https://fuelbook-backend.onrender.com/api/drivers', newDriver);
+                console.log("response "+ response)
                 if (response.status === 201) {
                     fetchDrivers();
                     handleClose();
