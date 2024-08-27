@@ -16,8 +16,8 @@ const Drivers = () => {
         contact: '',
         address: '',
         driving_license: '',
-        ownership: 'myDriver',
-        status: 'active',
+        ownership: '',
+        status: '',
     });
 
     useEffect(() => {
@@ -42,8 +42,8 @@ const Drivers = () => {
             contact: '',
             address: '',
             driving_license: '',
-            ownership: 'myDriver',
-            status: 'active',
+            ownership: '',
+            status: '',
         });
         setSelectedDriver(null);
     };
