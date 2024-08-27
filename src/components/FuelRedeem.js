@@ -10,7 +10,7 @@ function FuelRedeem() {
     // Function to search for token details
     const handleSearch = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/fuels/token/${tokenId}`);
+            const response = await fetch(`https://fuelbook-backend.onrender.com/api/fuels/token/${tokenId}`);
             if (response.ok) {
                 const data = await response.json();
                 setTokenDetails(data);
@@ -27,7 +27,7 @@ function FuelRedeem() {
     // Function to verify and update fuel_dispensed status
     const handleVerify = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/fuels/token/${tokenId}/dispense`, {
+            const response = await fetch(`https://fuelbook-backend.onrender.com/api/fuels/token/${tokenId}/dispense`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
             });
