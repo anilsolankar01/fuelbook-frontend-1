@@ -23,7 +23,7 @@ const FuelReport = () => {
     useEffect(() => {
         const fetchPumps = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/pumps');
+                const response = await axios.get('https://fuelbook-backend.onrender.com/api/pumps');
                 setPumps(response.data || []);
             } catch (error) {
                 console.error('Error fetching pumps:', error);
@@ -37,7 +37,7 @@ const FuelReport = () => {
     useEffect(() => {
         const fetchBalances = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/api/pumps/bal');
+                const response = await axios.post('https://fuelbook-backend.onrender.com/api/pumps/bal');
                 setBalances(response.data || []);
             } catch (error) {
                 console.error('Error fetching pump balances:', error);
@@ -53,9 +53,9 @@ const FuelReport = () => {
             const fetchSelectedPump = async () => {
                 try {
                     const [pumpResponse, tokensResponse, paymentsResponse] = await Promise.all([
-                        axios.get(`http://localhost:5000/api/pumps/${pumpId}`),
-                        axios.get(`http://localhost:5000/api/fuels/by-pump/${pumpId}`),
-                        axios.get(`http://localhost:5000/api/payments/pump/${pumpId}`)
+                        axios.get(`https://fuelbook-backend.onrender.com/api/pumps/${pumpId}`),
+                        axios.get(`https://fuelbook-backend.onrender.com/api/fuels/by-pump/${pumpId}`),
+                        axios.get(`https://fuelbook-backend.onrender.com/api/payments/pump/${pumpId}`)
                     ]);
 
                     setSelectedPump({
@@ -88,7 +88,7 @@ const FuelReport = () => {
     const handlePaymentSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/api/payments/pump/${pumpId}`, paymentDetails);
+            await axios.post(`https://fuelbook-backend.onrender.com/api/payments/pump/${pumpId}`, paymentDetails);
             setSelectedPump(prev => ({
                 ...prev,
                 payments: [

@@ -26,7 +26,7 @@ const Drivers = () => {
 
     const fetchDrivers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/drivers');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/drivers');
             setDrivers(response.data);
         } catch (error) {
             console.error('Error fetching drivers:', error);
@@ -58,7 +58,7 @@ const Drivers = () => {
     const handleSubmit = async () => {
         if (editMode && selectedDriver) {
             try {
-                const response = await axios.put(`http://localhost:5000/api/drivers/${selectedDriver.id}`, newDriver);
+                const response = await axios.put(`https://fuelbook-backend.onrender.com/api/drivers/${selectedDriver.id}`, newDriver);
                 if (response.status === 200) {
                     fetchDrivers();
                     handleClose();
@@ -71,7 +71,7 @@ const Drivers = () => {
             }
         } else {
             try {
-                const response = await axios.post('http://localhost:5000/api/drivers', newDriver);
+                const response = await axios.post('https://fuelbook-backend.onrender.com/api/drivers', newDriver);
                 if (response.status === 201) {
                     fetchDrivers();
                     handleClose();

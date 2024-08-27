@@ -36,7 +36,7 @@ const Trucks = () => {
 
     const fetchTrucks = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/trucks');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/trucks');
             setTrucks(response.data);
         } catch (error) {
             console.error('Error fetching trucks:', error);
@@ -71,7 +71,7 @@ const Trucks = () => {
     const handleSubmit = async () => {
         if (editMode && selectedTruck) {
             try {
-                const response = await axios.put(`http://localhost:5000/api/trucks/${selectedTruck.id}`, newTruck);
+                const response = await axios.put(`https://fuelbook-backend.onrender.com/api/trucks/${selectedTruck.id}`, newTruck);
                 if (response.status === 200) {
                     fetchTrucks();
                     handleClose();
@@ -84,7 +84,7 @@ const Trucks = () => {
             }
         } else {
             try {
-                const response = await axios.post('http://localhost:5000/api/trucks', newTruck);
+                const response = await axios.post('https://fuelbook-backend.onrender.com/api/trucks', newTruck);
                 if (response.status === 201) {
                     fetchTrucks();
                     handleClose();

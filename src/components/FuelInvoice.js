@@ -51,7 +51,7 @@ const FuelInvoice = () => {
 
     const fetchInvoices = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/fuels');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/fuels');
             setInvoices(response.data);
         } catch (error) {
             console.error('Error fetching invoices:', error);
@@ -61,7 +61,7 @@ const FuelInvoice = () => {
 
     const fetchPumps = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/pumps');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/pumps');
             setPumps(response.data);
         } catch (error) {
             console.error('Error fetching pumps:', error);
@@ -71,7 +71,7 @@ const FuelInvoice = () => {
 
     const fetchTrucks = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/trucks');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/trucks');
             setTrucks(response.data);
         } catch (error) {
             console.error('Error fetching trucks:', error);
@@ -81,7 +81,7 @@ const FuelInvoice = () => {
 
     const fetchDrivers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/drivers');
+            const response = await axios.get('https://fuelbook-backend.onrender.com/api/drivers');
             setDrivers(response.data);
         } catch (error) {
             console.error('Error fetching drivers:', error);
@@ -139,7 +139,7 @@ const FuelInvoice = () => {
     const handleAddPump = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/pumps', newPump);
+            await axios.post('https://fuelbook-backend.onrender.com/api/pumps', newPump);
             setNewPump({
                 name: '',
                 location: '',
@@ -157,7 +157,7 @@ const FuelInvoice = () => {
     const handleAddInvoice = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/fuels', newInvoice);
+            await axios.post('https://fuelbook-backend.onrender.com/api/fuels', newInvoice);
             setNewInvoice({
                 token_id: '',
                 pump_id: '',
