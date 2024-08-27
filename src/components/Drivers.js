@@ -17,7 +17,7 @@ const Drivers = () => {
         address: '',
         driving_license: '',
         ownership: '',
-        status: '',
+        status: 'active',
     });
 
     useEffect(() => {
