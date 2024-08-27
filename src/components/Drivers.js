@@ -58,6 +58,7 @@ const Drivers = () => {
     const handleSubmit = async () => {
         if (editMode && selectedDriver) {
             try {
+                console.log("driver update " + newDriver);
                 const response = await axios.put(`https://fuelbook-backend.onrender.com/api/drivers/${selectedDriver.id}`, newDriver);
                 if (response.status === 200) {
                     fetchDrivers();
@@ -71,9 +72,9 @@ const Drivers = () => {
             }
         } else {
             try {
-                console.log("data send from form "+ newDriver)
+                console.log("data send from form "+ newDriver);
                 const response = await axios.post('https://fuelbook-backend.onrender.com/api/drivers', newDriver);
-                console.log("response "+ response)
+                console.log("response "+ response);
                 if (response.status === 201) {
                     fetchDrivers();
                     handleClose();
