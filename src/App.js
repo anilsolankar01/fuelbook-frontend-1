@@ -1,31 +1,40 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
 import Trucks from './components/Trucks';
 import Drivers from './components/Drivers';
 import FuelInvoice from './components/FuelInvoice';
-import './App.css';
 import FuelReport from './components/FuelReport';
+import FuelRedeem from './components/FuelRedeem';
+import SidebarLayout from './components/SidebarLayout';
+import Navbar from './components/Navbar';
+import './App.css';
+
 
 function App() {
     return (
         <Router>
-            <div className="App">
-                <Sidebar />
-                    <Navbar />
-                    <div className="main-content">
-                        <Routes>
-                            <Route path="/trucks" element={<Trucks />} />
-                            <Route path="/drivers" element={<Drivers />} />
-                            <Route path="/fuel-invoice" element={<FuelInvoice />} />
-                            <Route path="/fuel-report" element={<FuelReport />} />
-                            <Route path="/fuel-report/:pumpId" element={<FuelReport />} />
-                            <Route path="/" element={<Trucks />} />
-                        </Routes>
+            <Routes>
+                {/* Layout with Sidebar */}
+                <Route path="/trucks" element={<SidebarLayout><Trucks /></SidebarLayout>} />
+                <Route path="/drivers" element={<SidebarLayout><Drivers /></SidebarLayout>} />
+                <Route path="/fuel-invoice" element={<SidebarLayout><FuelInvoice /></SidebarLayout>} />
+                <Route path="/fuel-report" element={<SidebarLayout><FuelReport /></SidebarLayout>} />
+                <Route path="/fuel-report/:pumpId" element={<SidebarLayout><FuelReport /></SidebarLayout>} />
+
+                {/* Layout with Only Navbar */}
+                <Route path="/fuel-redeem" element={
+                    <div>
+                        <Navbar />
+                        <div className="container mt-5">
+                            <FuelRedeem />
+                        </div>
                     </div>
-                </div>
+                } />
+
+                {/* Default Route */}
+                <Route path="/" element={<SidebarLayout><Trucks /></SidebarLayout>} />
+            </Routes>
         </Router>
     );
 }
