@@ -211,18 +211,19 @@ const Drivers = () => {
 
             <div className="drivers-table-container mt-5">
                 <h3 className="table-title">Drivers Table</h3>
-                <div className="d-flex justify-content-between align-items-center mb-3">
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
                     <Form.Control
                         type="text"
                         value={globalFilter || ''}
                         onChange={(e) => setGlobalFilter(e.target.value)}
                         placeholder="Search drivers"
-                        className="search-input"
+                        className="search-input mb-2 mb-md-0"
                     />
-                    <Button onClick={handleShow} className="ml-3">
+                    <Button onClick={handleShow} className="mt-2 mt-md-0 ms-md-3">
                         + Add Driver
                     </Button>
                 </div>
+
                 <BSTable  hover responsive {...getTableProps()}>
                     <thead>
                         {headerGroups.map(headerGroup => (
@@ -257,16 +258,17 @@ const Drivers = () => {
                         })}
                     </tbody>
                 </BSTable>
-                    <div className="pagination" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <div style={{ display: 'flex', gap: '10px' }}>
-                            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                                Previous
-                            </Button>
-                            <Button onClick={() => nextPage()} disabled={!canNextPage}>
-                                Next
-                            </Button>
-                        </div>
-                        <span>
+                <div className="pagination d-flex flex-column flex-sm-row align-items-center justify-content-between mb-3">
+                    <div className="d-flex gap-2 mb-2 mb-sm-0">
+                        <Button onClick={() => previousPage()} disabled={!canPreviousPage} className="btn btn-secondary">
+                            Previous
+                        </Button>
+                        <Button onClick={() => nextPage()} disabled={!canNextPage} className="btn btn-secondary">
+                            Next
+                        </Button>
+                    </div>
+                    <div className="d-flex flex-column flex-sm-row align-items-center text-center text-sm-left">
+                        <span className="d-block d-sm-inline-block mb-2 mb-sm-0">
                             Page{' '}
                             <strong>
                                 {pageIndex + 1} of {pageOptions.length}
@@ -281,9 +283,13 @@ const Drivers = () => {
                                     const page = e.target.value ? Number(e.target.value) - 1 : 0;
                                     gotoPage(page);
                                 }}
+                                className="form-control form-control-sm d-inline-block w-auto"
+                                style={{ maxWidth: '100px' }}
                             />
                         </span>
                     </div>
+                </div>
+
             </div>
 
             <Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal">

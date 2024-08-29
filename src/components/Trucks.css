@@ -1,42 +1,33 @@
-
-  
 .count-card {
-   border: 1px solid #ddd;
-   border-radius: 5px;
-  
-   text-align: center;
-   margin: 10px;
- 
- }
- .count-card .count {
-   font-size: 24px;
-   font-weight: bold;
- }
- .count-card .label {
-   font-size: 14px;
-   color: #888;
- }
- .count-card.market .count {
-   color: rgb(111, 0, 255);
- }
- .card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+}
+.count-card .count {
+  font-size: 24px;
+  font-weight: bold;
+}
+.count-card .label {
+  font-size: 14px;
+  color: #888;
+}
+.count-card.market .count {
+  color: rgb(111, 0, 255);
+}
+.card {
   margin-right: 10px;
 }
-
 .card:last-child {
   margin-right: 0;
 }
-
-.row{
- padding-left: 10px;
-
+.row {
+  padding-left: 10px;
 }
-
 .custom-modal {
   max-width: 25%; /* Set a max-width for the modal */
-  max-height: 50vh; /* Set a max-height for the modal */
+  max-height: 10vh; /* Set a max-height for the modal */
 }
-
 .custom-modal-dialog {
   display: flex;
   flex-direction: column;
@@ -55,6 +46,11 @@
   transition: border-color 0.3s;
 }
 
+.truck-type-option img {
+  width: 20px; /* Adjust image width */
+  height: 20px; /* Adjust image height */
+  margin-bottom: 5px; /* Space between image and label */
+}
 
 
 .truck-type-option:hover,
@@ -62,29 +58,26 @@
   border-color: blue;
 }
 
+
 .ownership-options {
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
 }
-
 .ownership-radio {
   display: inline-block;
   margin: 0 10px;
 }
-
 .ownership-radio .form-check-label {
   font-size: 16px;
   color: #333;
 }
-
 .trucks-table-container {
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
-
 .trucks-table-title {
   margin: -50px 20px 20px 20px;
   padding: 15px;
@@ -94,7 +87,6 @@
   text-align: center;
   font-weight: bold;
 }
-
 .table th {
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -102,33 +94,25 @@
   color: #888;
   border-bottom: none;
 }
-
 .table td {
   vertical-align: middle;
   border-bottom: none;
 }
-
 .table thead {
   border-bottom: 2px solid #ddd;
 }
-
 .table tbody tr {
   border-bottom: 1px solid #eee;
 }
-
 .table tbody tr:hover {
   background-color: #f9f9f9;
 }
-
 .table td:last-child {
   text-align: center;
 }
-
 .table .btn-link {
   color: #ff2d55;
-  
 }
-
 .status-badge {
   padding: 5px 10px;
   border-radius: 12px;
@@ -136,24 +120,93 @@
   color: white;
   text-transform: capitalize;
   text-align: center;
- 
   display: inline-block;
   width: 80px;
- 
 }
-
 .status-badge.active {
   background-color: #28a745; /* Green for active */
 }
-
 .status-badge.disactive {
   background-color: #dc3545; /* Red for disactive */
 }
-
-hr{
+hr {
   border-top: 0px solid rgba(0, 0, 0, 0.12);
 }
-
 .search-input {
   width: 300px; /* Adjust this value as needed */
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .custom-modal {
+    max-width: 90%; /* Expand modal width on smaller screens */
+    max-height: 80vh; /* Adjust modal height on smaller screens */
+    margin-top: 5vh;
+  }
+
+  .count-card {
+    margin: 5px; /* Reduce margin for smaller screens */
+  }
+
+  .count-card .count {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .count-card .label {
+    font-size: 12px; /* Adjust label font size */
+  }
+
+  .row {
+    padding-left: 5px; /* Reduce padding */
+  }
+
+  .truck-type-option {
+    width: 45%; /* Make truck type options more compact */
+    margin: 5px; /* Reduce margin */
+  }
+
+  .ownership-options {
+    flex-direction: column; /* Stack radio buttons vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-top: 5px; /* Adjust margin */
+  }
+
+  .trucks-table-container {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .trucks-table-title {
+    margin: 0px 10px 10px 10px; /* Adjust margins */
+    padding: 10px; /* Reduce padding */
+    font-size: 14px; /* Smaller font size for title */
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.75rem; /* Reduce font size for table */
+  }
+
+  .search-input {
+    width: 100%; /* Make search input full-width */
+  }
+
+  .status-badge {
+    width: 70px; /* Adjust width for smaller screens */
+  }
+
+  .modal-dialog {
+   /* Ensure proper spacing around modal */
+    margin-top: 7vh;
+    margin-left: 2vh;
+  }
+
+  .modal-footer {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center-align buttons */
+  }
+
+  .modal-footer .btn {
+    width: 100%; /* Make buttons full-width */
+    margin-bottom: 5px; /* Add space between buttons */
+  }
 }

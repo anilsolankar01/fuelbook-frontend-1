@@ -412,33 +412,38 @@ const FuelInvoice = () => {
                         </tbody>
                     </BSTable>
                 )}
-               <div className="pagination" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                    <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                        Previous
-                    </Button>
-                    <Button onClick={() => nextPage()} disabled={!canNextPage}>
-                        Next
-                    </Button>
-                </div>
-                <span>
-                    Page{' '}
-                    <strong>
-                        {pageIndex + 1} of {pageOptions.length}
-                    </strong>
-                </span>
-                <span>
-                    | Go to page:{' '}
-                    <input
-                        type="number"
-                        defaultValue={pageIndex + 1}
-                        onChange={(e) => {
-                            const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                            gotoPage(page);
-                        }}
-                    />
-                </span>
-            </div>
+                    <div className="pagination d-flex flex-column flex-sm-row align-items-center justify-content-between mb-3">
+                        <div className="d-flex gap-2 mb-2 mb-sm-0">
+                            <Button onClick={() => previousPage()} disabled={!canPreviousPage} className="btn btn-secondary">
+                                Previous
+                            </Button>
+                            <Button onClick={() => nextPage()} disabled={!canNextPage} className="btn btn-secondary">
+                                Next
+                            </Button>
+                        </div>
+                        <div className="d-flex flex-column flex-sm-row align-items-center text-center text-sm-left">
+                            <span className="d-block d-sm-inline-block mb-2 mb-sm-0">
+                                Page{' '}
+                                <strong>
+                                    {pageIndex + 1} of {pageOptions.length}
+                                </strong>
+                            </span>
+                            <span>
+                                | Go to page:{' '}
+                                <input
+                                    type="number"
+                                    defaultValue={pageIndex + 1}
+                                    onChange={(e) => {
+                                        const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                                        gotoPage(page);
+                                    }}
+                                    className="form-control form-control-sm d-inline-block w-auto"
+                                    style={{ maxWidth: '100px' }}
+                                />
+                            </span>
+                        </div>
+                    </div>
+
 
             </div>
 

@@ -215,19 +215,19 @@ const Trucks = () => {
             </div>
 
             <div className="trucks-table-container mt-5">
-                <h3 className="trucks-table-title">Trucks Table</h3>
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                    <Form.Control
-                        type="text"
-                        value={globalFilter || ''}
-                        onChange={(e) => setGlobalFilter(e.target.value)}
-                        placeholder="Search trucks"
-                        className="search-input"
-                    />
-                    <Button onClick={handleShow} className="ml-3">
-                        + Add Truck
-                    </Button>
-                </div>
+                            <h3 className="trucks-table-title">Trucks Table</h3>
+                            <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
+                <Form.Control
+                    type="text"
+                    value={globalFilter || ''}
+                    onChange={(e) => setGlobalFilter(e.target.value)}
+                    placeholder="Search trucks"
+                    className="search-input mb-2 mb-md-0" // Margin bottom for spacing on smaller screens
+                />
+                <Button onClick={handleShow} className="mt-2 mt-md-0 ml-md-3">
+                    + Add Truck
+                </Button>
+            </div>
                 <BSTable hover responsive {...getTableProps()}>
                     <thead>
                         {headerGroups.map(headerGroup => (
@@ -263,16 +263,17 @@ const Trucks = () => {
                     </tbody>
                 </BSTable>
 
-                    <div className="pagination" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <div style={{ display: 'flex', gap: '10px' }}>
-                            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                                Previous
-                            </Button>
-                            <Button onClick={() => nextPage()} disabled={!canNextPage}>
-                                Next
-                            </Button>
-                        </div>
-                        <span>
+                <div className="pagination d-flex flex-column flex-sm-row align-items-center justify-content-between mb-3">
+                    <div className="d-flex gap-2 mb-2 mb-sm-0">
+                        <Button onClick={() => previousPage()} disabled={!canPreviousPage} className="btn btn-secondary">
+                            Previous
+                        </Button>
+                        <Button onClick={() => nextPage()} disabled={!canNextPage} className="btn btn-secondary">
+                            Next
+                        </Button>
+                    </div>
+                    <div className="d-flex flex-column flex-sm-row align-items-center text-center text-sm-left">
+                        <span className="d-block d-sm-inline-block mb-2 mb-sm-0">
                             Page{' '}
                             <strong>
                                 {pageIndex + 1} of {pageOptions.length}
@@ -287,107 +288,110 @@ const Trucks = () => {
                                     const page = e.target.value ? Number(e.target.value) - 1 : 0;
                                     gotoPage(page);
                                 }}
+                                className="form-control form-control-sm d-inline-block w-auto"
+                                style={{ maxWidth: '100px' }}
                             />
                         </span>
-                     </div>
+                    </div>
+                </div>
+
 
             </div>
-
             <Modal show={show} onHide={handleClose} centered dialogClassName="custom-modal">
-                <Modal.Header closeButton>
-                    <Modal.Title>{editMode ? 'Edit Truck' : 'Add Truck'}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    {error && <div className="alert alert-danger">{error}</div>} {/* Display error */}
-                    <Form>
-                        <Row>
-                            <Col md={6}>
-                                <Form.Group controlId="formTruckRegNumber">
-                                    <Form.Label>Truck Registration Number *</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="registration_number"
-                                        placeholder="Enter truck registration number"
-                                        value={newTruck.registration_number}
-                                        onChange={handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={12}>
-                                <Form.Group controlId="formTruckType">
-                                    <Form.Label>Truck Type</Form.Label>
-                                    <div className="d-flex flex-wrap">
-                                        {truckTypes.map((truck) => (
-                                            <div
-                                                key={truck.id}
-                                                onClick={() => handleTruckTypeSelect(truck.id)}
-                                                className={`truck-type-option ${selectedTruckType === truck.id ? 'selected' : ''}`}
-                                                style={{ cursor: 'pointer', marginRight: '10px', marginBottom: '10px' }}
-                                            >
-                                                <img src={truck.imgSrc} alt={truck.label} width="30" height="30" />
-                                                <div>{truck.label}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={6}>
-                                <Form.Group controlId="formOwnership">
-                                    <Form.Label>Ownership</Form.Label>
-                                    <div className="ownership-options">
-                                        <Form.Check
-                                            type="radio"
-                                            label="Market Truck"
-                                            name="ownership"
-                                            id="marketTruck"
-                                            className="ownership-radio"
-                                            value="marketTruck"
-                                            checked={newTruck.ownership === 'marketTruck'}
-                                            onChange={handleInputChange}
-                                        />
-                                        <Form.Check
-                                            type="radio"
-                                            label="My Truck"
-                                            name="ownership"
-                                            id="myTruck"
-                                            className="ownership-radio"
-                                            value="myTruck"
-                                            checked={newTruck.ownership === 'myTruck'}
-                                            onChange={handleInputChange}
-                                        />
-                                    </div>
-                                </Form.Group>
-                            </Col>
-                            <Col md={6}>
-                                <Form.Group controlId="formStatus">
-                                    <Form.Label>Status</Form.Label>
-                                    <Form.Control
-                                        as="select"
-                                        name="status"
-                                        value={newTruck.status}
-                                        onChange={handleInputChange}
-                                    >
-                                        <option value="active">Active</option>
-                                        <option value="disactive">Disactive</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
-                        {editMode ? 'Save Changes' : 'Confirm'}
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+    <Modal.Header closeButton>
+        <Modal.Title>{editMode ? 'Edit Truck' : 'Add Truck'}</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+        {error && <div className="alert alert-danger">{error}</div>} {/* Display error */}
+        <Form>
+            <Row className="mb-3">
+                <Col xs={12}>
+                    <Form.Group controlId="formTruckRegNumber">
+                        <Form.Label>Truck Registration Number *</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="registration_number"
+                            placeholder="Enter truck registration number"
+                            value={newTruck.registration_number}
+                            onChange={handleInputChange}
+                        />
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Row className="mb-3">
+                <Col xs={12}>
+                    <Form.Group controlId="formTruckType">
+                        <Form.Label>Truck Type</Form.Label>
+                        <div className="d-flex flex-wrap">
+                            {truckTypes.map((truck) => (
+                                <div
+                                    key={truck.id}
+                                    onClick={() => handleTruckTypeSelect(truck.id)}
+                                    className={`truck-type-option ${selectedTruckType === truck.id ? 'selected' : ''}`}
+                                >
+                                    <img src={truck.imgSrc} alt={truck.label} className="img-fluid" />
+                                    <div>{truck.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Row className="mb-3">
+                <Col xs={12} md={6}>
+                    <Form.Group controlId="formOwnership">
+                        <Form.Label>Ownership</Form.Label>
+                        <div className="ownership-options">
+                            <Form.Check
+                                type="radio"
+                                label="Market Truck"
+                                name="ownership"
+                                id="marketTruck"
+                                className="ownership-radio"
+                                value="marketTruck"
+                                checked={newTruck.ownership === 'marketTruck'}
+                                onChange={handleInputChange}
+                            />
+                            <Form.Check
+                                type="radio"
+                                label="My Truck"
+                                name="ownership"
+                                id="myTruck"
+                                className="ownership-radio"
+                                value="myTruck"
+                                checked={newTruck.ownership === 'myTruck'}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </Form.Group>
+                </Col>
+                <Col xs={12} md={6}>
+                    <Form.Group controlId="formStatus">
+                        <Form.Label>Status</Form.Label>
+                        <Form.Control
+                            as="select"
+                            name="status"
+                            value={newTruck.status}
+                            onChange={handleInputChange}
+                        >
+                            <option value="active">Active</option>
+                            <option value="disactive">Disactive</option>
+                        </Form.Control>
+                    </Form.Group>
+                </Col>
+            </Row>
+        </Form>
+    </Modal.Body>
+    <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+            Close
+        </Button>
+        <Button variant="primary" onClick={handleSubmit}>
+            {editMode ? 'Save Changes' : 'Confirm'}
+        </Button>
+    </Modal.Footer>
+</Modal>
+
 
         </div>
     );
